@@ -1,0 +1,48 @@
+{
+  "model_version": "v2",
+  "created_utc": "2026-11-25T19:48:12+00:00",
+  "model_file": "ecosort_mobilenetv2_v2.keras",
+  "h5_file": "ecosort_mobilenetv2_v1.h5",
+  "architecture": "MobileNetV2 (ImageNet) + GAP + Dropout + Dense softmax",
+  "input_size": [
+    224,
+    224,
+    3
+  ],
+  "input_range": "raw 0-255 pixels (scaling is inside the model)",
+  "class_names": [
+    "Cardboard",
+    "Food Organics",
+    "Glass",
+    "Metal",
+    "Miscellaneous Trash",
+    "Paper",
+    "Plastic",
+    "Textile Trash",
+    "Vegetation"
+  ],
+  "confidence_threshold": 0.7,
+  "test_accuracy": 0.8185654008438819,
+  "test_f1_macro": 0.8224918297244623,
+  "train_size": 3325,
+  "val_size": 716,
+  "test_size": 711,
+  "seed": 42,
+  "tensorflow_version": "2.21.0",
+  "last_retraining": {
+    "created_utc": "2026-11-25T19:48:12+00:00",
+    "previous_version": "v1",
+    "candidate_version": "v2",
+    "uploaded_images_used": 45,
+    "training_images_total": 3370,
+    "baseline_validation_loss": 0.519507646560669,
+    "baseline_validation_accuracy": 0.8184357285499573,
+    "candidate_validation_loss": 0.5057839751243591,
+    "candidate_validation_accuracy": 0.8296089172363281,
+    "promotion_gate": "candidate val_loss lower AND candidate val_accuracy >= baseline - 0.01",
+    "promoted": true,
+    "epochs_completed": 4,
+    "test_set_used": false
+  },
+  "test_metrics_note": "Test metrics in this metadata refer to the original independently evaluated model; the new version has not been evaluated on the test set."
+}

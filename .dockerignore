@@ -1,0 +1,20 @@
+
+.git/
+.gitignore
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.*
+
+.agents/
+.claude/
+
+data_raw/
+data_inbox/
+realwaste.zip
+ecosort_retraining_test.zip
+
+# Keep models/, splits/ and reports/
+# because the application needs them.

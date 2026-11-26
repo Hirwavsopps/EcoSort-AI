@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-11-25T19:48:12+00:00",
+  "previous_version": "v1",
+  "candidate_version": "v2",
+  "uploaded_images_used": 45,
+  "training_images_total": 3370,
+  "baseline_validation_loss": 0.519507646560669,
+  "baseline_validation_accuracy": 0.8184357285499573,
+  "candidate_validation_loss": 0.5057839751243591,
+  "candidate_validation_accuracy": 0.8296089172363281,
+  "promotion_gate": "candidate val_loss lower AND candidate val_accuracy >= baseline - 0.01",
+  "promoted": true,
+  "epochs_completed": 4,
+  "test_set_used": false,
+  "status": "promoted"
+}

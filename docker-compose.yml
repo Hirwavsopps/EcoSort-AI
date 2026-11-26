@@ -1,0 +1,80 @@
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: uvicorn src.app:app --host 0.0.0.0 --port 8000
+    environment:
+      ECOSORT_PROJECT_DIR: /app
+    volumes:
+      - .:/app
+    expose:
+      - "8000"
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 120s
+
+  nginx:
+    image: nginx:1.28-alpine
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - nginx
+        - -t
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: streamlit run src/dashboard.py --server.address=0.0.0.0 --server.port=8501
+    environment:
+      ECOSORT_PROJECT_DIR: /app
+      ECOSORT_API_URL: http://nginx:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8501:8501"
+    depends_on:
+      nginx:
+        condition: service_healthy
+    restart: unless-stopped
+
+  locust:
+    image: locustio/locust:2.32.5
+    profiles:
+      - loadtest
+    volumes:
+      - .:/app:ro
+    working_dir: /app
+    command:
+      - -f
+      - /app/locustfile.py
+      - --host
+      - http://nginx:8000
+      - --web-host
+      - 0.0.0.0
+    ports:
+      - "8089:8089"
+    depends_on:
+      nginx:
+        condition: service_healthy

@@ -1,0 +1,18 @@
+{
+  "rules_version": "draft-1",
+  "note": "Illustrative mapping only. Confirm local collection rules before operational use.",
+  "streams": {
+    "Cardboard": "recyclable",
+    "Food Organics": "biodegradable",
+    "Glass": "recyclable",
+    "Metal": "recyclable",
+    "Miscellaneous Trash": "residual",
+    "Paper": "recyclable",
+    "Plastic": "recyclable",
+    "Textile Trash": "residual",
+    "Vegetation": "biodegradable"
+  },
+  "manual_review_classes": [
+    "Miscellaneous Trash"
+  ]
+}
