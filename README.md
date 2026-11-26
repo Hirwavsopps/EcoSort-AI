@@ -37,7 +37,7 @@ The API health endpoint reports the active model version, model loading status, 
 
 <!-- Add your YouTube demonstration URL here -->
 
-Demo vid[https://drive.google.com/file/d/1w7qPB3E9ZJqNZuqJuv5TtzoojvoAxkFr/view?usp=sharing](url)
+[Demo Video](https://drive.google.com/file/d/1w7qPB3E9ZJqNZuqJuv5TtzoojvoAxkFr/view?usp=sharing)
 
 ---
 
