@@ -37,7 +37,7 @@ The API health endpoint reports the active model version, model loading status, 
 
 <!-- Add your YouTube demonstration URL here -->
 
-[Watch the EcoSort AI demonstration](YOUR_YOUTUBE_VIDEO_URL)
+[Watch the EcoSort AI demonstration]((https://drive.google.com/file/d/1w7qPB3E9ZJqNZuqJuv5TtzoojvoAxkFr/view?usp=sharing))
 
 ---
 
